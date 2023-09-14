@@ -1,0 +1,9 @@
+{
+    "cucumberautocomplete.gherkinDefinitionPart": "true",
+    "cucumberautocomplete.customParameters": [
+
+    ],
+    "cucumberautocomplete.steps": [
+        "Shouty.Specs/StepDefinitions/*.cs"
+    ]
+}
