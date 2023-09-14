@@ -6,13 +6,13 @@ namespace Shouty.Specs.StepDefinitions;
 public class StepDefinitions
 {
     [Given("Lucy is located {int}m from Sean")]
-    public void GivenLucyislocatedmfromSean(int p0)
+    public void GivenLucyislocatedmfromSean(int distance)
     {
         throw new PendingStepException();
     }
     
     [When("Sean shouts {string}")]
-    public void WhenSeanshouts(string p0)
+    public void WhenSeanshouts(string message)
     {
         throw new PendingStepException();
     }
