@@ -3,3 +3,5 @@ obj/
 .vs
 
 .fake
+
+Shouty.Specs/Features/HearShout.feature.cs
