@@ -1,0 +1,8 @@
+{
+    "cucumber.features": [    
+        "Shouty.Specs/Features/*.feature"
+    ],
+    "cucumber.glue": [  
+        "Shouty.Specs/StepDefinitions/*.cs"
+    ]
+}
