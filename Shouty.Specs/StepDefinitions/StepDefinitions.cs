@@ -8,7 +8,9 @@ public class StepDefinitions
     [Given("Lucy is located {int}m from Sean")]
     public void GivenLucyislocatedmfromSean(int distance)
     {
-        throw new PendingStepException();
+        var lucy = new Person();
+        var sean = new Person();
+        lucy.MoveTo(distance);
     }
     
     [When("Sean shouts {string}")]
