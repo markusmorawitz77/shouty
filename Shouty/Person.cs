@@ -25,7 +25,7 @@ public class Person
         network.Broadcast(message);
     }
 
-    internal void Hear(string message)
+    public void Hear(string message)
     {
         messagesHeard.Add(message);
     }
