@@ -7,38 +7,32 @@ namespace Shouty.Specs.StepDefinitions;
 public class StepDefinitions
 {   
     private Network network;
-    private Person lucy;
-    private Person sean;
-    private string messageFromSean;
+    private Dictionary<string, Person> people;
+    private string shoutedMessage;
 
     [BeforeScenario]
     public void CreateNetwork()
     {
         network = new Network();
+        people = new Dictionary<string, Person>();
     }
 
-    [Given("a person named Lucy")]
-    public void GivenAPersonNamedLucy()
+    [Given("a person named {word}")]
+    public void GivenAPerson(string name)
     {
-        lucy = new(network);
-    }
-
-    [Given("a person named Sean")]
-    public void GivenAPersonNamedSean()
-    {
-        sean = new(network);
+        people.Add(name, new Person(network));
     }
     
-    [When("Sean shouts {string}")]
-    public void WhenSeanshouts(string message)
+    [When("{word} shouts {string}")]
+    public void WhenSeanshouts(string name, string message)
     {
-        sean.Shout(message);
-        messageFromSean = message;
+        people[name].Shout(message);
+        shoutedMessage = message;
     }
 
-    [Then("Lucy hears Sean's message")]
-    public void ThenLucyHearsSeansMessage()
+    [Then("{word} hears {word}'s message")]
+    public void ThenLucyHearsSeansMessage(string listener, string shouter)
     {
-        Assert.Contains(messageFromSean, lucy.GetMessagesHeard());
+        Assert.Contains(shoutedMessage, people[listener].GetMessagesHeard());
     }
 }
