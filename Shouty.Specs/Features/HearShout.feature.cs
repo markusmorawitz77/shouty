@@ -100,18 +100,15 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
-    testRunner.Given("the range is 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("a person named Sean", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-    testRunner.And("a person named Sean is located at 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("a person named Lucy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-    testRunner.And("a person named Lucy is located at 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
     testRunner.When("Sean shouts \"Free coffee!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 11
     testRunner.Then("Lucy should hear Sean\'s message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -126,7 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Listener is within range", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -136,20 +133,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
+#line 16
     testRunner.Given("the range is 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 18
+#line 17
     testRunner.And("a person named Sean is located at 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 18
     testRunner.And("a person named Lucy is located at 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
-    testRunner.When("Sean shouts \"free bagels at Sean\'s\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
-    testRunner.Then("Lucy should hear Sean\'s message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+    testRunner.Then("Lucy should hear a shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -163,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Listener is out of range", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
+#line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -173,20 +170,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 24
+#line 23
     testRunner.Given("the range is 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 24
     testRunner.And("a person named Sean is located at 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 25
     testRunner.And("a person named Larry is located at 150", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
-    testRunner.When("Sean shouts \"free bagels at Sean\'s\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 26
+    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
-    testRunner.Then("Larry should not hear Sean\'s message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 27
+    testRunner.Then("Larry should not hear a shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
