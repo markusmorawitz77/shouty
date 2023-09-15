@@ -16,10 +16,6 @@ public class Person
         return messagesHeard;
     }
 
-    public void MoveTo(int distance)
-    {
-    }
-
     public void Shout(string message)
     {
         network.Broadcast(message);

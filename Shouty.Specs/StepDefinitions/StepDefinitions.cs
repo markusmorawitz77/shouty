@@ -6,29 +6,27 @@ namespace Shouty.Specs.StepDefinitions;
 [Binding]
 public class StepDefinitions
 {   
+    private Network network;
     private Person lucy;
     private Person sean;
     private string messageFromSean;
 
-    [Given("Lucy is {int} metre(s) from Sean")]
-    public void GivenLucyislocatedmfromSean(int distance)
-    {        
-        var network = new Network();
-        sean = new(network);
-        lucy = new(network);
-        lucy.MoveTo(distance);
+    [BeforeScenario]
+    public void CreateNetwork()
+    {
+        network = new Network();
     }
 
     [Given("a person named Lucy")]
     public void GivenAPersonNamedLucy()
     {
-        throw new PendingStepException();
+        lucy = new(network);
     }
 
     [Given("a person named Sean")]
     public void GivenAPersonNamedSean()
     {
-        throw new PendingStepException();
+        sean = new(network);
     }
     
     [When("Sean shouts {string}")]

@@ -14,7 +14,8 @@ Scenario: Listener hears a message
     Then Lucy hears Sean's message
 
 Scenario: Listener hears a differnet message
-    Given Lucy is 15 metres from Sean
+    Given a person named Lucy
+    And a person named Sean
     When Sean shouts "Free coffee!"
     Then Lucy hears Sean's message
 
