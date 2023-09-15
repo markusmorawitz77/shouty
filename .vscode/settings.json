@@ -3,6 +3,7 @@
         "Shouty.Specs/Features/*.feature"
     ],
     "cucumber.glue": [  
-        "Shouty.Specs/StepDefinitions/*.cs"
+        "Shouty.Specs/StepDefinitions/*.cs",
+        "Shouty.Specs/Support/ParameterTypes.cs"
     ]
 }
