@@ -18,6 +18,18 @@ public class StepDefinitions
         lucy = new(network);
         lucy.MoveTo(distance);
     }
+
+    [Given("a person named Lucy")]
+    public void GivenAPersonNamedLucy()
+    {
+        throw new PendingStepException();
+    }
+
+    [Given("a person named Sean")]
+    public void GivenAPersonNamedSean()
+    {
+        throw new PendingStepException();
+    }
     
     [When("Sean shouts {string}")]
     public void WhenSeanshouts(string message)
