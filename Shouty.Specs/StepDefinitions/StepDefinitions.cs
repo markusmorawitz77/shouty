@@ -6,27 +6,25 @@ namespace Shouty.Specs.StepDefinitions;
 [Binding]
 public class StepDefinitions
 {
-    private Person lucy = new ();
-    private Person sean = new ();
 
     private string messageFromSean;
 
-    [Given("Lucy is located {int}m from Sean")]
-    public void GivenLucyislocatedmfromSean(int distance)
+    [Given("{Person} is located {int}m from {Person}")]
+    public void GivenLucyislocatedmfromSean(Person receiver, int distance, Person sender)
     {        
-        lucy.MoveTo(distance);
+        receiver.MoveTo(distance);
     }
     
-    [When("Sean shouts {string}")]
-    public void WhenSeanshouts(string message)
+    [When("{Person} shouts {string}")]
+    public void WhenSeanshouts(Person sender, string message)
     {
-        sean.Shout(message);
+        sender.Shout(message);
         messageFromSean = message;
     }
 
-    [Then("Lucy hears Sean's message")]
-    public void ThenLucyHearsSeansMessage()
+    [Then("{Person} hears {Person}'s message")]
+    public void ThenLucyHearsSeansMessage(Person receiver, Person sender)
     {
-        Assert.Contains(messageFromSean, lucy.GetMessagesHeard());
+        Assert.Contains(messageFromSean, receiver.GetMessagesHeard());
     }
 }
