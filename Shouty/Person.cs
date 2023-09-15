@@ -1,13 +1,19 @@
-
-
-
 namespace Shouty;
 
 public class Person
 {
+    private readonly Network network;
+    private readonly List<string> messagesHeard = new ();
+
+    public Person(Network network)
+    {
+        this.network = network;
+        network.Subscribe(this);
+    }
+
     public IEnumerable<string> GetMessagesHeard()
     {
-        return new List<string> { "free bagels at Sean's" };
+        return messagesHeard;
     }
 
     public void MoveTo(int distance)
@@ -16,5 +22,11 @@ public class Person
 
     public void Shout(string message)
     {
+        network.Broadcast(message);
+    }
+
+    internal void Hear(string message)
+    {
+        messagesHeard.Add(message);
     }
 }
