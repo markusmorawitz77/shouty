@@ -1,4 +1,5 @@
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using Xunit;
 
 namespace Shouty.Specs.StepDefinitions;
@@ -10,6 +11,18 @@ public class StepDefinitions
     private Network network = new Network(DEFAULT_RANGE);
     private Dictionary<string, Person> people;
     private string shoutedMessage;
+
+    public class Whereabouts
+    {
+        public string Name { get; set; }
+        public int Location {get; set; }
+    }
+
+    [StepArgumentTransformation]
+    public Whereabouts[] ConvertWhereabouts(Table table)
+    {
+        return table.CreateSet<Whereabouts>().ToArray();
+    }
 
     [BeforeScenario]
     public void CreateNetwork()
@@ -29,6 +42,15 @@ public class StepDefinitions
         people.Add(name, new Person(network, 0));
     }
 
+    [Given("people are located at")]
+    public void GivenPeopleAreLocatedAt(Whereabouts[] whereaboutsList)
+    {
+        foreach (var whereabouts in whereaboutsList)
+        {
+            people.Add(whereabouts.Name, new Person(network, whereabouts.Location));
+        }
+    }
+
     [Given("a person named {word} is located at {int}")]
     public void GivenAPerson(string name, int location)
     {
@@ -42,6 +64,7 @@ public class StepDefinitions
     }
     
     [When("{word} shouts {string}")]
+    [When("{word} shouts the following message")]
     public void WhenSomeoneShoutsAMessage(string name, string message)
     {
         people[name].Shout(message);
@@ -70,5 +93,12 @@ public class StepDefinitions
     public void ThenListenerShouldNotHearShoutersMessage(string listener, string shouter)
     {
         Assert.DoesNotContain(shoutedMessage, people[listener].GetMessagesHeard());
+    }
+
+    [Then("{word} hears the following messages:")]
+    public void ThenListenerHearsTheFollowingMessages(string listener, Table expectedMessagesTable)
+    {
+        var actualMessages = people[listener].GetMessagesHeardEx();
+        expectedMessagesTable.CompareToSet(actualMessages);
     }
 }

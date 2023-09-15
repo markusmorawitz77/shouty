@@ -18,6 +18,18 @@ public class Person
         return messagesHeard;
     }
 
+     public class HeardMessage
+    {
+        public required string Message { get; set; }
+    }
+
+    public IList<HeardMessage> GetMessagesHeardEx()
+    {
+        return messagesHeard
+            .Select(m => new HeardMessage {Message = m})
+            .ToArray();
+    }
+
     public void Shout(string message)
     {
         network.Broadcast(message, Location);

@@ -19,10 +19,10 @@ public class Network
     {
         foreach (var listener in listeners)
         {
-            if (Math.Abs(listener.Location - shouterLocation) <= range)
-            {
+            var withinRange = Math.Abs(listener.Location - shouterLocation) <= range;
+            var shortEnough = message.Length <= 180;
+            if (withinRange && shortEnough)
                 listener.Hear(message);
-            }
         }
     }
 

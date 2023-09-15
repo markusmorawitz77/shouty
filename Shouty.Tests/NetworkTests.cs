@@ -15,6 +15,7 @@ public class NetworkTests
         int seanLocation = 0;
         var lucy = new Person(network, seanLocation);
         network.Broadcast(Message, seanLocation);
+
         Assert.Contains(Message, lucy.GetMessagesHeard());
     }
 
@@ -24,6 +25,7 @@ public class NetworkTests
         int seanLocation = 0;
         var laura = new Person(network, 101);
         network.Broadcast(Message, seanLocation);
+
         Assert.DoesNotContain(Message, laura.GetMessagesHeard());
     }
 
@@ -33,6 +35,18 @@ public class NetworkTests
         int sallyLocation = 101;
         var lionel = new Person(network, 0);
         network.Broadcast(Message, sallyLocation);
+
         Assert.DoesNotContain(Message, lionel.GetMessagesHeard());
+    }
+
+    [Fact]
+    public void Does_not_broadcast_a_message_over_180_characters_even_if_listener_is_in_range()
+    {
+        int seanLocation = 0;
+        var longMessage = new string('x', 181);
+        Person laura = new Person(network, 0);
+        network.Broadcast(longMessage, seanLocation);
+
+        Assert.DoesNotContain(longMessage, laura.GetMessagesHeard());
     }
 }

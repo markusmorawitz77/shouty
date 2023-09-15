@@ -136,16 +136,22 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
     testRunner.Given("the range is 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "location"});
+                table1.AddRow(new string[] {
+                            "Sean",
+                            "0"});
+                table1.AddRow(new string[] {
+                            "Lucy",
+                            "50"});
 #line 17
-    testRunner.And("a person named Sean is located at 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("people are located at", ((string)(null)), table1, "And ");
 #line hidden
-#line 18
-    testRunner.And("a person named Lucy is located at 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 19
+#line 21
     testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 22
     testRunner.Then("Lucy should hear a shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -160,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Listener is out of range", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -170,20 +176,105 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 23
+#line 25
     testRunner.Given("the range is 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 24
-    testRunner.And("a person named Sean is located at 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
-    testRunner.And("a person named Larry is located at 150", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "location"});
+                table2.AddRow(new string[] {
+                            "Sean",
+                            "0"});
+                table2.AddRow(new string[] {
+                            "Larry",
+                            "150"});
 #line 26
+    testRunner.And("people are located at", ((string)(null)), table2, "And ");
+#line hidden
+#line 30
     testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 27
+#line 31
     testRunner.Then("Larry should not hear a shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Two shouts")]
+        [Xunit.TraitAttribute("FeatureTitle", "HearShout")]
+        [Xunit.TraitAttribute("Description", "Two shouts")]
+        public void TwoShouts()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two shouts", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 36
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 37
+    testRunner.Given("a person named Sean", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 38
+    testRunner.And("a person named Lucy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 39
+    testRunner.When("Sean shouts \"Free bagels!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 40
+    testRunner.And("Sean shouts \"Free toast!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "message"});
+                table3.AddRow(new string[] {
+                            "Free bagels!"});
+                table3.AddRow(new string[] {
+                            "Free toast!"});
+#line 41
+    testRunner.Then("Lucy hears the following messages:", ((string)(null)), table3, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Message is too long")]
+        [Xunit.TraitAttribute("FeatureTitle", "HearShout")]
+        [Xunit.TraitAttribute("Description", "Message is too long")]
+        public void MessageIsTooLong()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message is too long", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 49
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 50
+    testRunner.Given("a person named Sean", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 51
+    testRunner.And("a person named Lucy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 52
+    testRunner.When("Sean shouts the following message", "This is a really long message\r\nso long in fact that I am not going to\r\nbe allowed" +
+                        " to send it, at least if I keep\r\ntyping like this until the length is over\r\nthe " +
+                        "limit of 180 characters.", ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 60
+    testRunner.Then("Lucy should not hear a shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
