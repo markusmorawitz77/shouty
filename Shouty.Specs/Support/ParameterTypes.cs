@@ -8,7 +8,7 @@ public class ParameterTypes
     [StepArgumentTransformation]
     public Person ConvertPerson(string name)
     {
-        return new Person(new Network());
+        return new Person(new Network(100), 0);
     }
 }
 

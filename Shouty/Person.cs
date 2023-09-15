@@ -4,10 +4,12 @@ public class Person
 {
     private readonly Network network;
     private readonly List<string> messagesHeard = new ();
+    public int Location { get; }
 
-    public Person(Network network)
+    public Person(Network network, int location)
     {
         this.network = network;
+        this.Location = location;
         network.Subscribe(this);
     }
 
@@ -18,7 +20,7 @@ public class Person
 
     public void Shout(string message)
     {
-        network.Broadcast(message);
+        network.Broadcast(message, Location);
     }
 
     public void Hear(string message)

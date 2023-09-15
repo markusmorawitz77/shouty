@@ -4,15 +4,35 @@ namespace Shouty.Tests;
 
 public class NetworkTests
 {
+    private const int Range = 100;
+    private const string Message = "Free bagels!";
+    private readonly Network network = new Network(Range);
+
+
     [Fact]
-    public void Broadcasts_a_message_to_all_listeners()
+    public void Broadcasts_a_message_to_a_listener_within_range()
     {
-        var network = new Network();
-        const string message = "Free bagles!";
+        int seanLocation = 0;
+        var lucy = new Person(network, seanLocation);
+        network.Broadcast(Message, seanLocation);
+        Assert.Contains(Message, lucy.GetMessagesHeard());
+    }
 
-        var lucy = new Person(network);
+    [Fact]
+    public void Does_not_broadcast_a_message_to_a_listener_out_of_range()
+    {
+        int seanLocation = 0;
+        var laura = new Person(network, 101);
+        network.Broadcast(Message, seanLocation);
+        Assert.DoesNotContain(Message, laura.GetMessagesHeard());
+    }
 
-        network.Broadcast(message);
-        Assert.Contains(message, lucy.GetMessagesHeard());
+    [Fact]
+    public void Does_not_broadcast_a_message_to_a_listener_out_of_range_negative_distance()
+    {
+        int sallyLocation = 101;
+        var lionel = new Person(network, 0);
+        network.Broadcast(Message, sallyLocation);
+        Assert.DoesNotContain(Message, lionel.GetMessagesHeard());
     }
 }

@@ -13,14 +13,19 @@ public class StepDefinitions
     [BeforeScenario]
     public void CreateNetwork()
     {
-        network = new Network();
         people = new Dictionary<string, Person>();
     }
 
-    [Given("a person named {word}")]
-    public void GivenAPerson(string name)
+    [Given("the range is {int}")]
+    public void GivenTheRangeIs(int range)
     {
-        people.Add(name, new Person(network));
+        network = new Network(range);
+    }
+
+    [Given("a person named {word} is located at {int}")]
+    public void GivenAPerson(string name, int location)
+    {
+        people.Add(name, new Person(network, location));
     }
     
     [When("{word} shouts {string}")]
@@ -30,9 +35,15 @@ public class StepDefinitions
         shoutedMessage = message;
     }
 
-    [Then("{word} hears {word}'s message")]
-    public void ThenLucyHearsSeansMessage(string listener, string shouter)
+    [Then("{word} should hear {word}'s message")]
+    public void ThenListenerShouldHearShoutersMessage(string listener, string shouter)
     {
         Assert.Contains(shoutedMessage, people[listener].GetMessagesHeard());
+    }
+
+    [Then("{word} should not hear {word}'s message")]
+    public void ThenListenerShouldNotHearShoutersMessage(string listener, string shouter)
+    {
+        Assert.DoesNotContain(shoutedMessage, people[listener].GetMessagesHeard());
     }
 }
